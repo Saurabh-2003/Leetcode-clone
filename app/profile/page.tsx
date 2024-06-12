@@ -5,7 +5,7 @@ import React from 'react'
 const Profile = () => {
   return (
     <main className='flex gap-6 py-6 px-20 min-h-screen'>
-      <ProfileInfo />
+     // <ProfileInfo />
 
       <div className='flex flex-col gap-4 rounded-xl  w-full'>
         
