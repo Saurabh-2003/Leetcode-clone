@@ -111,8 +111,8 @@ const ProfileInfo = () => {
             <h3>Languages</h3>
             <ul className='flex flex-col text-xs  gap-4'>
                 {
-                    languages.map((l) => (
-                        <div className='flex justify-between'>
+                    languages.map((l, index) => (
+                        <div key={index} className='flex justify-between'>
                             <span className='px-2 py-1 bg-gray-100 text-gray-500 rounded-full'>{l.name}</span>
                             <p className='flex gap-1'>{l.sol}<span className='text-gray-500'>problems solved</span></p>
                         </div>
