@@ -5,15 +5,64 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  email    String @unique
-  password String 
-  createdAt DateTime @default(now())
+model user {
+  id              String          @id @default(uuid()) @db.VarChar(36)
+  name            String
+  username        String          @unique
+  email           String          @unique
+  password        String
+  createdAt       DateTime        @default(now())
+  avatarURL       String?
+  bio             String?
+  location        String?
+  collegeName     String?
+  socialLinks     String?
+  skills          String?
+  communityStats  Json?
+  submissions     submission[]
+  easySolved      Int
+  mediumSolved    Int
+  hardSolved      Int
 }
+
+
+
+model problem {
+  id              String          @id @default(uuid()) @db.VarChar(36)
+  title           String
+  description     String
+  difficulty      Difficulty
+  createdAt       DateTime        @default(now())
+  submissions     submission[]
+}
+
+model submission {
+  id              String          @id @default(uuid()) @db.VarChar(36)
+  code            String
+  status          SubmissionStatus
+  createdAt       DateTime        @default(now())
+  userId          String
+  user            user            @relation(fields: [userId], references: [id])
+  problemId       String
+  problem         problem         @relation(fields: [problemId], references: [id])
+}
+ 
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum SubmissionStatus {
+  ACCEPTED
+  WRONG_ANSWER
+  TIME_LIMIT_EXCEEDED
+  RUNTIME_ERROR
+  COMPILE_ERROR
+}
+

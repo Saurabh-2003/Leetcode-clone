@@ -15,7 +15,7 @@ const Header = () => {
           alt="LeetCode logo"
           className='p-2'
         />
-        <ul className='flex gap-6 text-gray-500 ml-4'>
+        <ul className='flex gap-6 text-gray-500 ml-4 cursor-pointer'>
           <li>Explore</li>
           <li>Problems</li>
           <li>Contest</li>

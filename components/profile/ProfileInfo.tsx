@@ -4,8 +4,16 @@ import { FaStar } from 'react-icons/fa'
 import { HiOutlineTag } from 'react-icons/hi'
 import { IoIosChatbubbles } from 'react-icons/io'
 import { IoCheckbox, IoEyeSharp, IoLocationOutline } from "react-icons/io5"
+import axios from "axios"
 
 const ProfileInfo = () => {
+
+    // function submit()
+    // {
+
+    //     const res=axios.post('/api/userdetail', {userName:"johndoe"});
+    //     console.log(res);
+    // }
   const [name, setName] = useState('Saurabh Thapliyal')
   const [username, setUsername] = useState('grinding_leetcode')
   const [rank, setRank] = useState(83437)
@@ -25,7 +33,7 @@ const ProfileInfo = () => {
                 </span>
             </div>  
         </div>
-        <button className='w-full text-green-500 p-2 rounded-xl text-sm bg-emerald-500/10'>
+        <button  className='w-full text-green-500 p-2 rounded-xl text-sm bg-emerald-500/10'>
             Edit Profile
         </button>
         <div className='flex self-start mt-6 text-sm gap-2 text-gray-700'>
