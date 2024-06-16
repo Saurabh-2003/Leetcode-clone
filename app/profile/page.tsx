@@ -77,8 +77,4 @@ const Profile = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Profile
-=======
-export default Profile;
->>>>>>> 00d6e40 (merged changes of profile page)
